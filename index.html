@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Keana Delpuerto — Personal Bibliography Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+  --bg:#020617;
+  --surface:#0b1a33;
+  --border:#1e3a5f;
+  --primary:#60a5fa;
+  --primary-soft:#3b82f6;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:radial-gradient(circle at top,#0a1f44,#020617 45%,#000814);
+  color:var(--text);
+  min-height:100vh;
+  line-height:1.65;
+}
+
+/* Header */
+header{
+  max-width:1000px;
+  margin:auto;
+  padding:4rem 1.5rem 3rem;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  gap:2rem;
+  animation:fadeIn 1s ease forwards;
+}
+
+.hero-text{
+  flex:1 1 450px;
+  min-width:250px;
+}
+
+.hero-text h1{
+  font-size:2.8rem;
+  font-weight:700;
+  letter-spacing:.03em;
+}
+
+.hero-text p{
+  margin-top:.8rem;
+  color:var(--muted);
+  max-width:520px;
+}
+
+/* Social links */
+.hero-social{
+  margin-top:1rem;
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.hero-social a{
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:500;
+  transition:all .3s ease;
+}
+
+.hero-social a:hover{
+  text-decoration:underline;
+}
+
+/* Hero photo */
+.hero-photo{
+  flex-shrink:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:0;
+}
+
+.hero-photo img{
+  width:180px;
+  height:180px;
+  max-width:35vw;
+  max-height:35vw;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid var(--primary);
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.hero-photo img:hover{
+  transform:scale(1.06);
+  box-shadow:0 0 45px rgba(96,165,250,.6);
+}
+
+/* Main layout */
+main{
+  max-width:1000px;
+  margin:auto;
+  padding:3rem 1.5rem 4rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:2rem;
+}
+
+/* Sections */
+section{
+  background:linear-gradient(180deg,rgba(11,26,51,.96),rgba(6,18,38,.92));
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:2rem;
+  box-shadow:0 25px 50px rgba(0,0,0,.45);
+  transition:transform .35s ease, box-shadow .35s ease, border .35s ease;
+  animation:slideUp .9s ease forwards;
+  display:flex;
+  flex-direction:column;
+}
+
+section:hover{
+  transform:translateY(-8px);
+  box-shadow:0 35px 70px rgba(0,0,0,.7);
+  border:1px solid var(--primary-soft);
+}
+
+section:hover h2{
+  letter-spacing:.04em;
+  transition:letter-spacing .3s ease;
+}
+
+h2{
+  font-size:1.4rem;
+  margin-bottom:.8rem;
+  color:var(--primary);
+  letter-spacing:.02em;
+}
+
+.section-divider{
+  height:2px;
+  background:linear-gradient(to right, var(--primary), transparent);
+  margin:.8rem 0 1.2rem;
+}
+
+ul{list-style:none;padding-left:0}
+li{margin-bottom:.6rem}
+
+.info p{margin-bottom:.35rem}
+
+/* Tags */
+.tags{
+  margin-top:1rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+}
+
+.tags span{
+  display:inline-block;
+  padding:.4rem .8rem;
+  font-size:.8rem;
+  border-radius:999px;
+  background:#020617;
+  border:1px solid var(--border);
+  color:var(--muted);
+  transition:all .3s ease;
+}
+
+.tags span:hover{
+  background:var(--primary);
+  color:#020617;
+  border:1px solid var(--primary);
+}
+
+/* Links */
+a{
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:500;
+  position:relative;
+}
+
+a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-3px;
+  width:0;
+  height:2px;
+  background:var(--primary);
+  transition:width .3s ease;
+}
+
+a:hover::after{width:100%}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:3rem 1rem 2.5rem;
+  color:var(--muted);
+  font-size:.85rem;
+  border-top:1px solid var(--border);
+}
+
+/* Animations */
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(25px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+section:nth-child(1){animation-delay:.1s}
+section:nth-child(2){animation-delay:.2s}
+section:nth-child(3){animation-delay:.3s}
+section:nth-child(4){animation-delay:.4s}
+
+/* Responsive styles */
+
+/* Medium screens <720px */
+@media(max-width:720px){
+  header{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    padding:2rem 1rem 1.5rem;
+  }
+
+  .hero-text{
+    margin-bottom:0.8rem;
+  }
+
+  .hero-photo{
+    margin-top:0.8rem;
+  }
+
+  .hero-photo img{
+    width:130px;
+    height:130px;
+    max-width:40vw;
+    max-height:40vw;
+  }
+
+  main{
+    grid-template-columns:1fr;
+    padding:1.5rem 1rem 2rem;
+  }
+}
+
+/* Small screens <400px */
+@media(max-width:400px){
+  .hero-text h1{
+    font-size:1.8rem;
+  }
+  .hero-text p{
+    font-size:0.9rem;
+  }
+  .hero-photo img{
+    width:100px;
+    height:100px;
+    max-width:50vw;
+    max-height:50vw;
+  }
+  section{
+    padding:1rem;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="hero-text">
+    <h1>Keana Arbuis Delpuerto</h1>
+    <p>ICT Student at Liceo de Cagayan University aspiring to become an IT Professional</p>
+    <div class="hero-social">
+      <a href="https://facebook.com/" target="_blank">Facebook</a>
+      <a href="https://instagram.com/" target="_blank">Instagram</a>
+      <a href="https://tiktok.com/" target="_blank">Tiktok</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="keana.jpg" alt="Keana Arbuis Delpuerto">
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2>Basic Information</h2>
+    <div class="section-divider"></div>
+    <div class="info">
+      <p><strong>Age:</strong> 17</p>
+      <p><strong>Birthday:</strong> May 7, 2008</p>
+      <p><strong>Email:</strong> <a href="mailto:keaaangdelpuerto@gmail.com">keaaangdelpuerto@gmail.com</a></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Hobbies</h2>
+    <ul>
+      <li>Loves Sleeping</li>
+      <li>Loves Eating</li>
+      <li>Loves Watching Movies</li>
+      <li>Loves Playing Volleyball</li>
+    </ul>
+    <div class="tags">
+      <span>Sleeping</span><span>Eating</span><span>Movies</span><span>Volleyball</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills & Achievements</h2>
+    <div class="section-divider"></div>
+    <ul>
+      <li>Video editing using CapCut</li>
+      <li>Graphic design using Canva</li>
+      <li>Active member of the school volleyball club</li>
+      <li>Fav subject: Recess Time</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Interesting Facts</h2>
+    <div class="section-divider"></div>
+    <p>Likes going out with friends on weekends</p>
+    <p>Enjoys scrolling through social media</p>
+    <p>Enjoys photography and casual sketching</p>
+    <p>Lowkey Thirstrapper...</p>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Keana Arbuis Delpuerto • Personal Bibliography Portfolio
+</footer>
+
+</body>
+</html>
